@@ -1,0 +1,696 @@
+{
+	"info": {
+		"_postman_id": "eeffefef-6813-4112-800f-89f5181cd981",
+		"name": "ProjectMovie_DoTrungHieu",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "TicketAPIs",
+			"item": [
+				{
+					"name": "showDetailsByID",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{domain_api}}/api/Ticket/ShowDetails?showtimeid=2",
+							"host": [
+								"{{domain_api}}"
+							],
+							"path": [
+								"api",
+								"Ticket",
+								"ShowDetails"
+							],
+							"query": [
+								{
+									"key": "showtimeid",
+									"value": "2"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "UserAPIs",
+			"item": [
+				{
+					"name": "userTypeList",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{domain_api}}/api/User/TypeList",
+							"host": [
+								"{{domain_api}}"
+							],
+							"path": [
+								"api",
+								"User",
+								"TypeList"
+							]
+						},
+						"description": "Lấy danh sách loại người dùng"
+					},
+					"response": []
+				},
+				{
+					"name": "userSignIn",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\": \"hyoudou@gmail.com\",\r\n    \"password\": \"Hyoudou@a123\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{domain_api}}/api/User/SigIn",
+							"host": [
+								"{{domain_api}}"
+							],
+							"path": [
+								"api",
+								"User",
+								"SigIn"
+							]
+						},
+						"description": "Đăng nhập người dùng"
+					},
+					"response": []
+				},
+				{
+					"name": "userSignUp",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"Eieiei\",\r\n    \"email\": \"ei@gmail.com\",\r\n    \"phone\": \"1234567895\",\r\n    \"password\": \"Eiei@a123\",\r\n    \"role\": \"customer\",\r\n    \"avatar\": \"\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{domain_api}}/api/User/SignUp",
+							"host": [
+								"{{domain_api}}"
+							],
+							"path": [
+								"api",
+								"User",
+								"SignUp"
+							]
+						},
+						"description": "Đăng ký người dùng mới"
+					},
+					"response": []
+				},
+				{
+					"name": "userList",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{domain_api}}/api/User/UserList?keyword=hyou",
+							"host": [
+								"{{domain_api}}"
+							],
+							"path": [
+								"api",
+								"User",
+								"UserList"
+							],
+							"query": [
+								{
+									"key": "keyword",
+									"value": "hyou"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "userListPaging",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{domain_api}}/api/User/UserListPaging?keyword=hieu&page=0&pageSize=4",
+							"host": [
+								"{{domain_api}}"
+							],
+							"path": [
+								"api",
+								"User",
+								"UserListPaging"
+							],
+							"query": [
+								{
+									"key": "keyword",
+									"value": "hieu"
+								},
+								{
+									"key": "page",
+									"value": "0",
+									"description": "Default = 0"
+								},
+								{
+									"key": "pageSize",
+									"value": "4",
+									"description": "Default = 10"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "userInfoByEmail",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "movie_token",
+								"value": "{{token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\": \"hieudo@gmail.com\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{domain_api}}/api/User/Info",
+							"host": [
+								"{{domain_api}}"
+							],
+							"path": [
+								"api",
+								"User",
+								"Info"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "adminAddNewUser",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "movie_token",
+								"value": "{{token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"Ngọc Thạch\",\r\n    \"email\": \"thach@gmail.com\",\r\n    \"phone\": \"2234567894\",\r\n    \"password\": \"Thach@a123\",\r\n    \"role\": \"staff\",\r\n    \"avatar\": \"\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{domain_api}}/api/User/AddNewUser",
+							"host": [
+								"{{domain_api}}"
+							],
+							"path": [
+								"api",
+								"User",
+								"AddNewUser"
+							]
+						},
+						"description": "Đăng ký người dùng mới"
+					},
+					"response": []
+				},
+				{
+					"name": "updateUserByEmail",
+					"request": {
+						"method": "PATCH",
+						"header": [
+							{
+								"key": "movie_token",
+								"value": "{{token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"Hyoudou\",\r\n    \"email\": \"hyoudou@gmail.com\",\r\n    \"phone\": \"0000000000\",\r\n    \"password\": \"Hyoudou@a123\",\r\n    \"role\": \"Admin\",\r\n    \"avatar\": \"\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{domain_api}}/api/User/Info/Update",
+							"host": [
+								"{{domain_api}}"
+							],
+							"path": [
+								"api",
+								"User",
+								"Info",
+								"Update"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "adminRemoveUserByEmail",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "movie_token",
+								"value": "{{token}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{domain_api}}/api/User/RemoveUser?email=hieudo4@gmail.com",
+							"host": [
+								"{{domain_api}}"
+							],
+							"path": [
+								"api",
+								"User",
+								"RemoveUser"
+							],
+							"query": [
+								{
+									"key": "email",
+									"value": "hieudo4@gmail.com"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "MovieAPIs",
+			"item": [
+				{
+					"name": "movieList",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{domain_api}}/api/Movie/MovieList?name=man",
+							"host": [
+								"{{domain_api}}"
+							],
+							"path": [
+								"api",
+								"Movie",
+								"MovieList"
+							],
+							"query": [
+								{
+									"key": "name",
+									"value": "man"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "movieListPaging",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{domain_api}}/api/Movie/MovieListPaging?name=man&page=1&pageSize=7",
+							"host": [
+								"{{domain_api}}"
+							],
+							"path": [
+								"api",
+								"Movie",
+								"MovieListPaging"
+							],
+							"query": [
+								{
+									"key": "name",
+									"value": "man"
+								},
+								{
+									"key": "page",
+									"value": "1",
+									"description": "Defaullt = 0"
+								},
+								{
+									"key": "pageSize",
+									"value": "7",
+									"description": "Default = 10"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "movieListPagingByDate",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{domain_api}}/api/Movie/MovieListPagingByDate?name=spider&page=1&pageSize=2&from=01/09/2021&to=20/12/2021",
+							"host": [
+								"{{domain_api}}"
+							],
+							"path": [
+								"api",
+								"Movie",
+								"MovieListPagingByDate"
+							],
+							"query": [
+								{
+									"key": "name",
+									"value": "spider"
+								},
+								{
+									"key": "page",
+									"value": "1",
+									"description": "Default = 0"
+								},
+								{
+									"key": "pageSize",
+									"value": "2",
+									"description": "Default = 10"
+								},
+								{
+									"key": "from",
+									"value": "01/09/2021",
+									"description": "DD/MM/YYYY (Defaut = current date)"
+								},
+								{
+									"key": "to",
+									"value": "20/12/2021",
+									"description": "DD/MM/YYYY (Defaut = current date)"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "addNewMovie",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "movie_token",
+								"value": "{{token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"id\": 12,\r\n    \"name\": \"Black Panther\",\r\n    \"startDate\": \"2019-02-19 18:44:00\",\r\n    \"time\": 148,\r\n    \"evaluate\": 9,\r\n    \"poster\": \"\",\r\n    \"trailer\": \"\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{domain_api}}/api/Movie/AddNewMovie",
+							"host": [
+								"{{domain_api}}"
+							],
+							"path": [
+								"api",
+								"Movie",
+								"AddNewMovie"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "addMovieUploadPoster",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "movie_token",
+								"value": "{{token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "poster",
+									"description": "Only user with Role ADMIN or STAFF can perform this task",
+									"type": "file",
+									"src": "/C:/Users/Admin/Downloads/BlackPanther1_banner.png"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{domain_api}}/api/Movie/UpdateMoviePoster?id=12",
+							"host": [
+								"{{domain_api}}"
+							],
+							"path": [
+								"api",
+								"Movie",
+								"UpdateMoviePoster"
+							],
+							"query": [
+								{
+									"key": "id",
+									"value": "12"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "updateMovie",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "movie_token",
+								"value": "{{token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"id\": 12,\r\n    \"name\": \"Black Panther\",\r\n    \"startDate\": \"2021-09-10 20:44:00\",\r\n    \"time\": 148,\r\n    \"evaluate\": 9,\r\n    \"poster\": \"\",\r\n    \"trailer\": \"\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{domain_api}}/api/Movie/UpdateMovie",
+							"host": [
+								"{{domain_api}}"
+							],
+							"path": [
+								"api",
+								"Movie",
+								"UpdateMovie"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "deleteMovieByID",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "movie_token",
+								"value": "{{token}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{domain_api}}/api/Movie/Delete?id=19",
+							"host": [
+								"{{domain_api}}"
+							],
+							"path": [
+								"api",
+								"Movie",
+								"Delete"
+							],
+							"query": [
+								{
+									"key": "id",
+									"value": "19",
+									"description": "Only user with role ADMIN can perform this task"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "CinemaAPIs",
+			"item": [
+				{
+					"name": "cineplexInfo",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{domain_api}}/api/Cinema/CineplexInfo?name=cgv",
+							"host": [
+								"{{domain_api}}"
+							],
+							"path": [
+								"api",
+								"Cinema",
+								"CineplexInfo"
+							],
+							"query": [
+								{
+									"key": "name",
+									"value": "cgv"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "cinemaGroupInfo",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{domain_api}}/api/Cinema/CinemaGroupInfo?cineplexname=galaxy",
+							"host": [
+								"{{domain_api}}"
+							],
+							"path": [
+								"api",
+								"Cinema",
+								"CinemaGroupInfo"
+							],
+							"query": [
+								{
+									"key": "cineplexname",
+									"value": "galaxy"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "cineplexShowcase",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{domain_api}}/api/Cinema/CineplexShowcase?cineplexname=cgv",
+							"host": [
+								"{{domain_api}}"
+							],
+							"path": [
+								"api",
+								"Cinema",
+								"CineplexShowcase"
+							],
+							"query": [
+								{
+									"key": "cineplexname",
+									"value": "cgv"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "FirstTest",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{domain_api}}",
+					"host": [
+						"{{domain_api}}"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "domain_api",
+			"value": "http://localhost:4000"
+		},
+		{
+			"key": "token",
+			"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MTUsImVtYWlsIjoiaHlvdWRvdUBnbWFpbC5jb20iLCJyb2xlIjoiQURNSU4iLCJpYXQiOjE2MzQ3ODU5MzQsImV4cCI6MTYzNDg3MjMzNH0.KoElYYYgqsX5N12MqsyrRDXgKy6MJH6hHIdUsL1A3v8"
+		}
+	]
+}
